@@ -22,22 +22,48 @@
             line-height: 1.8;
             margin: 0;
             padding: 40px 20px;
-            background: linear-gradient(to right, #1a1a1a, #2a2a2a);
+            background-color: #0a0a20; /* Deep night blue/purple */
+            background-image: 
+                radial-gradient(at 20% 80%, rgba(0,255,255, 0.15), transparent),
+                radial-gradient(at 80% 20%, rgba(128,0,128, 0.15), transparent),
+                radial-gradient(at 50% 50%, rgba(0,255,0, 0.15), transparent);
+            background-size: 200% 200%;
             color: #e0e0e0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden;
+            animation: aurora-sky-animation 30s linear infinite alternate; /* Slower animation */
+        }
+
+        @keyframes aurora-sky-animation {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 100% 100%, 100% 100%, 100% 100%; }
         }
         .container {
             max-width: 800px;
             width: 100%;
-            background: #1e1e1e;
+            background: rgba(30, 30, 30, 0.5); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
-            border: 1px solid #00FFFF;
-            animation: fadeIn 1s ease-in-out;
+            border: 1px solid rgba(0, 255, 255, 0.3); /* Softer border */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1); /* Softer shadow */
+            animation: fadeIn 1s ease-in-out, pulsate 4s ease-in-out infinite;
+        }
+
+        @keyframes pulsate {
+            0% {
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+            }
         }
         h1, h2 {
             color: #00FFFF;
@@ -49,6 +75,24 @@
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 0 0 10px #00FFFF;
+            animation: text-flicker 3s infinite alternate;
+        }
+
+        @keyframes text-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF,
+                    0 0 120px #00FFFF;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.5;
+            }
         }
         h2 {
             border-bottom: 2px solid #00FFFF;
@@ -71,10 +115,12 @@
                 transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
             }
         ul li:hover {
-            transform: translateX(5px);
+            transform: translateY(-5px);
             background-color: #333;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
         a {
             color: #6495ED;
@@ -129,7 +175,12 @@
         <div class="section">
             <h2>SNS / ゲームID</h2>
             <ul class="social-links">
-                <li><img src="https://choro7.github.io/nfc-html/switch.png" alt="YouTube"><span class="social-label">Switch:</span>SW-6071-3342-3932</li>
+                <li>
+                    <img src="https://choro7.github.io/nfc-html/switch.png" alt="Switch">
+                    <span class="social-label">Switch:</span>
+                    <span id="switch-id-text">SW-6071-3342-3932</span>
+                    <button id="copy-switch-id" style="margin-left: 15px; background-color: #00FFFF; color: #1e1e1e; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">コピー</button>
+                </li>
                 <li><a href="https://www.youtube.com/@choro727" target="_blank"><img src="https://choro7.github.io/nfc-html/youtube.png" alt="YouTube"><span class="social-label">YouTube:</span>@choro727</a></li>
                 <li><a href="https://x.com/sukesuke_ace" target="_blank"><img src="https://choro7.github.io/nfc-html/X.png" alt="X"><span class="social-label">X:</span>@sukesuke_ace</a></li>
                 <li><a href="https://www.twitch.tv/choro7777" target="_blank"><img src="https://choro7.github.io/nfc-html/twitch.png" alt="Twitch"><span class="social-label">Twitch:</span>choro7777</a></li>
@@ -142,5 +193,21 @@
             <p class="multiline-text">valorant, RocketReague, LoLなどもやっています</p>
         </div>
     </div>
+
+    <script>
+        const copyButton = document.getElementById('copy-switch-id');
+        const textToCopy = document.getElementById('switch-id-text').innerText;
+
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyButton.innerText = 'コピー完了！';
+                setTimeout(() => {
+                    copyButton.innerText = 'コピー';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
