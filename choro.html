@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choro's Profile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             line-height: 1.8;
             margin: 0;
             padding: 40px 20px;
-            background-color: #121212;
+            background: linear-gradient(to right, #1a1a1a, #2a2a2a);
             color: #e0e0e0;
             display: flex;
             justify-content: center;
@@ -24,11 +35,12 @@
             background: #1e1e1e;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.15), 0 0 5px rgba(255, 255, 255, 0.1);
-            border: 1px solid #FF69B4;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+            border: 1px solid #00FFFF;
+            animation: fadeIn 1s ease-in-out;
         }
         h1, h2 {
-            color: #FF69B4;
+            color: #00FFFF;
         }
 
         h1 {
@@ -36,11 +48,10 @@
             font-size: 2.5em;
             text-align: center;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px #FF69B4;
+            text-shadow: 0 0 10px #00FFFF;
         }
         h2 {
-            color: #FF69B4;
-            border-bottom: 2px solid #FF69B4;
+            border-bottom: 2px solid #00FFFF;
             padding-bottom: 10px;
             margin-top: 30px;
             margin-bottom: 20px;
@@ -56,8 +67,10 @@
                 margin-bottom: 12px;
                 padding: 15px;
                 border-radius: 8px;
-                border-left: 5px solid #FF69B4;
+                border-left: 5px solid #00FFFF;
                 transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
             }
         ul li:hover {
             transform: translateX(5px);
@@ -65,35 +78,39 @@
         }
         a {
             color: #6495ED;
-            text-decoration: underline;
+            text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .social-links li {
             display: flex;
             align-items: center;
         }
+        a:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
         .social-label {
-            color: #FF69B4;
+            color: #00FFFF;
             font-weight: bold;
             min-width: 150px; /* Align labels */
+        }
+        .social-links img {
+            width: 24px;
+            height: auto;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ちょろのプロフィール</h1>
+        <h1>ちょろ</h1>
 
         <div class="section">
             <h2>自己紹介</h2>
-            <p>フィーバーも楽しみます</p>
+            <p>マリオテニスエースからガチ勢ですフィーバーも楽しみます</p>
         </div>
 
         <div class="section">
@@ -106,11 +123,11 @@
         <div class="section">
             <h2>SNS / ゲームID</h2>
             <ul class="social-links">
-                <li><span class="social-label">Nintendo Switch:</span>SW-6071-3342-3932</li>
-                <li><span class="social-label">YouTube:</span> <a href="https://www.youtube.com/@choro727" target="_blank">@choro727</a></li>
-                <li><span class="social-label">X:</span> <a href="https://x.com/sukesuke_ace" target="_blank">@sukesuke_ace</a></li>
-                <li><span class="social-label">Twitch:</span> <a href="https://www.twitch.tv/choro7777" target="_blank">choro7777</a></li>
-                <li><span class="social-label">Discord:</span> <a href="https://discord.com/users/choro7" target="_blank">choro7</a></li>
+                <li><img src="https://choro7.github.io/nfc-html/switch.png" alt="YouTube"><span class="social-label">Switch:</span>SW-6071-3342-3932</li>
+                <li><a href="https://www.youtube.com/@choro727" target="_blank"><img src="https://choro7.github.io/nfc-html/youtube.png" alt="YouTube"><span class="social-label">YouTube:</span>@choro727</a></li>
+                <li><a href="https://x.com/sukesuke_ace" target="_blank"><img src="https://choro7.github.io/nfc-html/X.png" alt="X"><span class="social-label">X:</span>@sukesuke_ace</a></li>
+                <li><a href="https://www.twitch.tv/choro7777" target="_blank"><img src="https://choro7.github.io/nfc-html/twitch.png" alt="Twitch"><span class="social-label">Twitch:</span>choro7777</a></li>
+                <li><a href="https://discord.com/users/choro7" target="_blank"><img src="https://choro7.github.io/nfc-html/discord.png" alt="Discord"><span class="social-label">Discord:</span>choro7</a></li>
             </ul>
         </div>
 
