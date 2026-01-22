@@ -140,65 +140,53 @@
             white-space: pre-wrap;
         }
 
-        #copy-switch-id {
-            margin-left: 15px;
-            background-color: #00FFFF;
-            color: #1e1e1e;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            transition: background-color 0.3s ease;
-        }
-        #copy-switch-id:hover {
-            background-color: #00b3b3;
-        }
-
         @media (max-width: 768px) {
             body {
-                padding: 10px;
-                line-height: 1.5;
+                padding: 5px; /* Minimal body padding */
+                line-height: 1.4;
             }
             .container {
-                padding: 15px;
+                padding: 10px; /* Reduced container padding */
             }
             h1 {
-                font-size: 1.6em;
-                margin-bottom: 10px;
+                font-size: 1.5em;
+                margin-bottom: 5px; /* Heavily reduced margin */
             }
             h2 {
-                font-size: 1.1em;
-                margin-top: 12px;
-                margin-bottom: 10px;
-                padding-bottom: 5px;
+                font-size: 1.0em; /* Smaller h2 */
+                margin-top: 8px; /* Heavily reduced margin */
+                margin-bottom: 5px; /* Heavily reduced margin */
+                padding-bottom: 3px;
+            }
+            p.multiline-text {
+                margin: 5px 0; /* Reduced margin for paragraphs */
+                font-size: 0.9em;
             }
             .section {
-                margin-bottom: 12px;
+                margin-bottom: 8px; /* Heavily reduced margin */
+            }
+            ul {
+                margin: 5px 0;
             }
             ul li {
-                padding: 10px;
-                margin-bottom: 8px;
-                font-size: 0.85em;
+                padding: 6px 8px; /* Tighter list items */
+                margin-bottom: 5px; /* Tighter list items */
+                font-size: 0.8em; /* Smaller font in lists */
                 flex-wrap: wrap;
             }
             .social-label {
-                width: 75px; /* Set fixed width for alignment */
-                flex-shrink: 0; /* Prevent label from shrinking */
-                margin-right: 8px;
+                width: 65px; /* Further reduced label width */
+                font-size: 1em; /* Make label font relative to li font */
+                flex-shrink: 0;
+                margin-right: 5px;
             }
             .social-links img {
-                width: 20px;
-                margin-right: 10px;
+                width: 18px; /* Smaller icons */
+                margin-right: 8px;
             }
             #switch-id-text {
                 white-space: normal;
                 word-break: break-all;
-            }
-            #copy-switch-id {
-                padding: 3px 7px;
-                font-size: 0.75em;
-                margin-left: 10px; /* Simple, predictable margin */
             }
         }
     </style>
@@ -226,7 +214,6 @@
                     <img src="https://choro7.github.io/nfc-html/switch.png" alt="Switch">
                     <span class="social-label">Switch:</span>
                     <span id="switch-id-text">SW-6071-3342-3932</span>
-                    <button id="copy-switch-id">コピー</button>
                 </li>
                 <li><a href="https://www.youtube.com/@choro727" target="_blank"><img src="https://choro7.github.io/nfc-html/youtube.png" alt="YouTube"><span class="social-label">YouTube:</span>@choro727</a></li>
                 <li><a href="https://x.com/sukesuke_ace" target="_blank"><img src="https://choro7.github.io/nfc-html/X.png" alt="X"><span class="social-label">X:</span>@sukesuke_ace</a></li>
@@ -241,20 +228,6 @@
         </div>
     </div>
 
-    <script>
-        const copyButton = document.getElementById('copy-switch-id');
-        const textToCopy = document.getElementById('switch-id-text').innerText;
 
-        copyButton.addEventListener('click', () => {
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                copyButton.innerText = 'コピー完了！';
-                setTimeout(() => {
-                    copyButton.innerText = 'コピー';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        });
-    </script>
 </body>
 </html>
