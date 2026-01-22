@@ -154,44 +154,47 @@
 
         @media (max-width: 768px) {
             body {
-                padding: 10px; /* Reduced further */
-                overflow: hidden; /* Prevent scrolling on mobile */
-                line-height: 1.5; /* Reduced line height */
+                padding: 20px 10px; /* Adjust padding */
+                line-height: 1.6;
             }
             .container {
-                padding: 15px; /* Reduced further */
+                padding: 20px;
             }
             h1 {
-                font-size: 1.6em; /* Reduced further */
-                margin-bottom: 8px;
+                font-size: 1.8em;
+                margin-bottom: 15px;
             }
             h2 {
-                font-size: 1.1em; /* Reduced further */
-                margin-top: 10px;
-                margin-bottom: 8px;
-                padding-bottom: 4px;
+                font-size: 1.2em;
+                margin-top: 20px;
+                margin-bottom: 15px;
+                padding-bottom: 5px;
             }
             .section {
-                margin-bottom: 10px; /* Reduced further */
+                margin-bottom: 20px;
             }
             ul li {
-                padding: 6px; /* Reduced further */
-                margin-bottom: 6px;
-                font-size: 0.85em; /* Reduced further */
+                padding: 12px 15px; /* Adjust padding */
+                margin-bottom: 10px;
+                font-size: 0.9em;
+                flex-wrap: wrap; /* Key change: Allow content to wrap */
             }
             .social-label {
-                min-width: 60px; /* Further reduced */
+                min-width: auto; /* Key change: Remove fixed width */
+                margin-right: 8px;
             }
             .social-links img {
-                width: 20px; /* Reduced icon size */
+                width: 22px;
+                margin-right: 10px;
             }
             #switch-id-text {
-                white-space: nowrap; /* Ensure friend code stays on one line */
+                white-space: normal; /* Key change: Allow friend code to wrap */
+                word-break: break-all; /* Break the long code if needed */
             }
             #copy-switch-id {
-                padding: 1px 4px; /* Further reduced */
-                font-size: 0.7em; /* Further reduced */
-                margin-left: 5px; /* Reduce margin */
+                padding: 4px 8px;
+                font-size: 0.8em;
+                margin-left: 10px; /* Adjust margin */
             }
         }
     </style>
